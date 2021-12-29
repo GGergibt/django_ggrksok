@@ -1,0 +1,15 @@
+../
+django_project/
+| django_project/
+| | __pycache__/
+| | __init__.py
+| | asgi.py
+| | settings.py
+| | urls.py
+| | wsgi.py
+| polls/
+| templates/
+| manage.py*
+| db.sqlite3
+| poetry.lock
+| pyproject.toml
