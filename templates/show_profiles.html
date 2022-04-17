@@ -1,0 +1,22 @@
+<head>
+    <h3><a href="/">Вернуться на главную страницу</a></h3>
+</head>
+<!-- {{stored_profiles}} -->
+
+<ul>
+    {% if stored_profiles%}
+    {% for profile in stored_profiles %}
+    <!-- <form action = "checkbox?folder={profile}" method = "Get"> -->
+    <!-- <div><p> {{ profile }} -->  
+    <!-- <button type="submit" name="file" value = "{{ profile }}">Скачать </button> -->
+    <h3><a href="checkbox?folder={{profile}}">{{profile}}</a></h3>
+    <!-- <button type="submit" name="clear" value = "{{ profile }}">Удалить </button> -->
+    <!-- <form> -->
+    <!-- </p> -->
+    <!-- </div> -->       
+    <!-- <li> {{profile}}</li> -->
+    {% endfor %}
+    {% else %}
+    <h1> Судя по всему, вы не регистрировались или не скачивали аккаунтов</h1>
+    {% endif%}
+</ul>

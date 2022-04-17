@@ -1,0 +1,29 @@
+<html>
+    <head><title>Мой супер проект который захватит весь МИР!!!</title>
+        <!--         <meta charets="utf-8" /> -->
+
+        <!--         <meta name="vievport" content="width=device-width, initial-scale=1"> -->
+    </head>
+    <body>
+
+        <!--         <div class="container"> -->
+
+        <!--             <h2 text="center"> Для отправки команд по протоколу РКСОК необходимо получить разрешение товарища майора</h2> -->
+        <!--             <hr /> -->
+        <!--             <h2> Введите свои позывные<h2> -->
+
+        <!--         </div> -->
+        <!--         <div class="placeholder"></div> -->
+
+        <form method="POST" action="/login/">
+            {% csrf_token %}
+
+            <input type="text" name="username"/>
+
+            <input type="password" name="password" />
+            <input type="submit" value = "Войти" />
+        </form>
+        <div class="placeholder"></div>
+
+    </body>
+</html>
