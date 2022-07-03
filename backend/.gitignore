@@ -1,0 +1,6 @@
+/venv
+/instagram
+/media
+*.pyc
+*.pyo
+__pycache__/

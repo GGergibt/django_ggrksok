@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.wrapper {
+	padding-top: 5rem;
+	margin: 0 auto;
+	width: 600px;
+	}
+.cont {
+	
+	margin: 150px 0;
+	max-width: 400px;
+
+   	text-align: center;
+	margin-left: auto;
+	margin-right: auto;/* align-items: center; */
+}
+.create {
+	/* justify-content: center; */
+}
+.create label {
+	text-align: left;
+	display: block;
+}
+.create h2 {
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+.create input, .create textarea  create button{
+	width: 100%;
+	padding: 9px 245px;
+	margin: 10px 0;
+	border: 1px solid #ddd;
+	box-sizing: border-box;
+	display: block;
+
+}
+.button {
+}
+.create select {
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .create button { */
+/* 	border: 0; */
+/* 	padding: 8px; */
+/* 	border-radius: 8px; */
+/* 	cursor: pointer; */
+/* } */
