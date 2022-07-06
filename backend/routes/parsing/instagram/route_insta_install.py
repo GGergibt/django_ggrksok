@@ -9,7 +9,7 @@ router = APIRouter()
 @router.post("/install_stories/{account_name}")
 def install(account_name: str):
     destination_folder = (
-        f"/home/gosha/projects/react_ggrksok/frontend/public/instagram/{account_name}"
+        f"/home/gosha/projects/react_ggrksok/backend/media/instagram/{account_name}"
     )
     try:
         L = instaloader.Instaloader(dirname_pattern=destination_folder)
@@ -43,7 +43,7 @@ def install(account_name: str):
 @router.get("/get/{account_name}")
 def returning(account_name: str):
     destination_folder = (
-        f"/home/gosha/projects/react_ggrksok/frontend/public/instagram/{account_name}"
+        f"/home/gosha/projects/react_ggrksok/backend/media/instagram/{account_name}"
     )
     files = listdir(destination_folder)
     print(files)

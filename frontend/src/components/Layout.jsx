@@ -39,7 +39,7 @@ const Layout = ({cookies}) => {
 			  </Link> : <h1></h1>}
 </div>
 		  </header> 
-			  <div>
+			  <div className="container mx-auto">
 			<Outlet/>
 			  </div>
 			  </>

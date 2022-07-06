@@ -2,8 +2,10 @@ import {React, useState, useEffect} from 'react';
 
 import {Link, useParams} from 'react-router-dom';
 
+import FilesList from './filesList'
 
-const ShowFolder = () => {
+
+const ShowFolder = ({cookies}) => {
 	const folderName = useParams().account_name
 	console.log(folderName)
 	const [apisResponse, setApisResponse] = useState(false)
@@ -31,7 +33,8 @@ const ShowFolder = () => {
 			<h1>fafhafhdf</h1>
 			<div class="container">
 			<button onClick={getFiles}> hhhh </button>
-			{apisResponse? apisResponse.files.map((files) => {return <Link download target="_blank" to={`/instagram/${folderName}/${files}`}>{files}</Link>}): <h1></h1>}
+			{/* {apisResponse? apisResponse.files.map((files) => {return <Link download target="_blank" to={`/instagram/${folderName}/${files}`}>{files}</Link>}): <h1></h1>} */}
+				{apisResponse? <FilesList history={apisResponse} cookies={cookies} category={"stories"} accountName={folderName}/>: <h1></h1>}
 
 		</div>
 		</div>

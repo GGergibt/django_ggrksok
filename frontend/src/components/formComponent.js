@@ -100,6 +100,7 @@ function UrlForm({cookies}) {
 				console.log(typeDownload)
 				const response = await fetch(`http://localhost:8000/install/youtube/video?url=${value}&query_format=${typeDownload}`, requestOptions).then((response) => response.json())
 				setApiResponse(response)
+
 				const responseApi = await fetch(`http://localhost:8000/media/youtube/${response.folder_name}`).then((responseApi) => responseApi.blob())
 				setAwaitResponse(false)
 				setVideo(responseApi)
@@ -123,8 +124,7 @@ function UrlForm({cookies}) {
 		console.log(value)
 	}
 	return (
-		<div className="cont">
-			<div className="create">
+		<>
 			<form className="" onSubmit={submitHandler}>
 				<input  style={styles.input} value={value} onChange={event => setValue(event.target.value)}/>
 				<select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={(event) => {setType(event.target.value)}}>
@@ -137,12 +137,11 @@ function UrlForm({cookies}) {
 			<form onSubmit={submitHandler}>
 				{url? <button className="button py-2 px-4 text-sm bg-white hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" type="submit"> Загрузить на сервер</button> : <h1></h1>}
 			</form>
-			</div>
 			{apiResponse? typeDownload === 'best' || typeDownload === 'bestaudio'? <button onClick={() => {fileDownload(video, apiResponse.folder_name)}} >Скачать</button>: <Link to={`/show_folder/${apiResponse.folder_name}`}> Сторис</Link> : <h1></h1>}
 			{/* {apiResponse? typeDownload === 'best' || typeDownload === 'bestaudio'? <Link to={video} target="_blank" download>Загрузить</Link>: <Link to={`/show_folder/${apiResponse.folder_name}`}> Сторис</Link> : <h1></h1>} */}
 			{awaitResponse & apiResponse? <h1>load</h1> : <h1> </h1>}
 			{url & apiResponse?<h1>  </h1>: typeDownload === 'instagram'? <h1> Введите username </h1>:typeDownload==='best'|| typeDownload === 'bestaudio'? <h1> youtube  url должен начинаться с https://www.youtube.com </h1>: <h1></h1>}
-		</div>
+		</>
 	)
 
 }

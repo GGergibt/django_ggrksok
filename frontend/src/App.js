@@ -23,17 +23,13 @@ function App() {
 
   return (
 	  <>
-		  <div>
-			
-
-		  </div>
 		  <Routes>
 			  <Route path="/" element={<Layout cookies={tokenCookie}/>}>
 				  <Route index element={<UrlForm cookies={tokenCookie}/>}/>
 				  <Route path="registration/" element={<RegistrationPage addToken={addToken}/>}/>
 				  <Route path="login/" element={<LoginPage addToken={addToken}/>}/>
 				  <Route path="history/" element={<HistoryPage cookies={tokenCookie}/>} />
-				  <Route path="show_folder/:account_name" element={<ShowFolder/>} />
+				  <Route path="show_folder/:account_name" element={<ShowFolder cookies={tokenCookie}/>} />
 			</Route>
 		  </Routes>
 

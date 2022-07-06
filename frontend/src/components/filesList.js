@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import FileItem from './fileItem'
 
 
-const FilesList = ({history}) => {
+const FilesList = ({history, cookies, category, accountName}) => {
+	console.log(accountName)
+	const [typeMedia, setTypeMedia] = useState("")
+	const filesList = history.files? history.files: history
+
+	useEffect(() => {
+	if (category === "stories") {
+		setTypeMedia("instagram")
+
+	}
+	else {
+		setTypeMedia("youtube")
+	}
+	}
+	)
 	return(
-		<ul class=" list-style-none m-0 p-0 center my-20 mb-10">
-		{history.map((folder) => {return <FileItem fileDetail={folder} typeMedia="youtube"/>})}
+		<ul class="p-4  pt-4 ">
+		{filesList.map((folder) => {return <FileItem accountName={accountName} cookies={cookies} fileDetail={folder} typeMedia={typeMedia} category={category}/>})}
 		</ul>
 	)
 }
