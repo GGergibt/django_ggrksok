@@ -20,23 +20,15 @@ const ShowFolder = ({cookies}) => {
 	// useEffect(
 	// 	showFiles, [init]
 	// )
-	const showFiles = () => {
-		console.log("ii")
-		apisResponse? apisResponse.files.map((files) => {return <Link download target="_blank" to={`/instagram/mishe_mozh/${files}`}>{files}</Link>}): console.log("hwllo")
-
-	}
-	// useEffect(showFiles, [apisResponse])
+	// useEffect(() => {getFiles()}, [init])
 
 	return (
 		<>
-		<div> 
-			<h1>fafhafhdf</h1>
 			<div class="container">
-			<button onClick={getFiles}> hhhh </button>
+			 {/* <button onClick={getFiles}> Список сторис</button> */} 
 			{/* {apisResponse? apisResponse.files.map((files) => {return <Link download target="_blank" to={`/instagram/${folderName}/${files}`}>{files}</Link>}): <h1></h1>} */}
-				{apisResponse? <FilesList history={apisResponse} cookies={cookies} category={"stories"} accountName={folderName}/>: <h1></h1>}
+			 {apisResponse? <FilesList history={apisResponse} cookies={cookies} category={"stories"} accountName={folderName}/> : getFiles()? '' : 'no files'}
 
-		</div>
 		</div>
 		</>
 

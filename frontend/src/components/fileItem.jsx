@@ -32,17 +32,8 @@ const FileItem = ({fileDetail, typeMedia, cookies, category, accountName}) => {
 	const pathMedia = fileDetail.folder_name? `${basePath}/${typeMedia}/${fileName}`: `${basePath}/${typeMedia}/${accountName}/${fileName}`
 
 	const clickHandler = async () => {
-		// setCount(fileDetail.max)
 
-		// const fileNameWithoutEx = fileDetail.folder_name.split(".")[0]
-
-		// const requestDetails = {
-		// 	method: 'POST'}
-
-		// const apiResponse = fetch(`http://localhost:8000/install/youtube/video?url=https://www.youtube.com/watch?v=${fileNameWithoutEx}&query_format=${category}`, requestDetails).then(apiResponse => apiResponse.json())
-
-		const response = await fetch(pathMedia).then((response) => response.blob())
-		console.log(response)
+		const response = fetch(pathMedia).then((response) => response.blob())
 		fileDownload(response, fileName)
 		if (response) {
 			if (cookies.token) {
