@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
+import {useNavigate} from 'react-router-dom'
+
 const RegistrationForm = ({addToken}) => {
     const [username, setUsername] = useState('')
     // const [usernameCheck, setUsernameCheck] = useState(false)
@@ -9,6 +11,7 @@ const RegistrationForm = ({addToken}) => {
     const [isPasswordValid, setIsPasswordValid] = useState(true)
     const [isPasswordExists, setIsPasswordExists] = useState(false)
     const [passwordConfirm, setPasswordConfirm] = useState('')
+    const navigate = useNavigate()
     useEffect(() => {
 	    const validateEmail = email.includes('@') && email.includes('.')
 	    const checkPasswordExists = password? true: false
@@ -33,6 +36,7 @@ const RegistrationForm = ({addToken}) => {
 	   }
 	   const response = await fetch("http://localhost:8000/users/create/", requestDetails).then((response) => response.json())
            addToken(response.token)
+           navigate("/")
 
    }
    }
@@ -68,7 +72,7 @@ const RegistrationForm = ({addToken}) => {
 			  {isEmailValid? <h1></h1>: <h1>Почтовый адрес должен содержать символы  @ и .</h1>}
 			  {isPasswordValid? <h1></h1>: <h1>Пароли не совпадают</h1>}
 			  {isPasswordExists? <h1></h1>: <h1> Введите пароль</h1>}
-			  { isEmailValid && isPasswordValid && isPasswordExists? <button type="submit" class="btn">Register</button>: <h1></h1>  }
+			  { isEmailValid && isPasswordValid && isPasswordExists? <button type="submit" className="button pb-2 py-4 px-2 text-sm bg-white hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">Register</button>: <h1></h1>  }
 			  
           </div>
 		   </form>
