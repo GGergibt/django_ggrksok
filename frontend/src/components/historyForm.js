@@ -46,7 +46,7 @@ const HistoryForm = ({cookies}) => {
 		</div>
 			<div className="flex justify-center">
 
-			{history? <FilesList category={category} cookies={cookies} history={history}/>: <p>Нет скачиваний</p>}
+			{history? <FilesList category={category} cookies={cookies} fileNames={history}/>: <p>Нет скачиваний</p>}
 			</div>
 			{/* <h1>{history? history.map((folder) => {return (<button class="py-2 px-4 text-sm font-medium text-gray-900">{folder.folder_name}</button>)}) : <h1></h1>}</h1> */}
 		</>

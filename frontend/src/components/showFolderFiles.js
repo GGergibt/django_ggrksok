@@ -26,8 +26,9 @@ const ShowFolder = ({cookies}) => {
 		<>
 			<div class="container">
 			 {/* <button onClick={getFiles}> Список сторис</button> */} 
+				<h1 className="flex justify-center"> {folderName}</h1>
 			{/* {apisResponse? apisResponse.files.map((files) => {return <Link download target="_blank" to={`/instagram/${folderName}/${files}`}>{files}</Link>}): <h1></h1>} */}
-			 {apisResponse? <FilesList history={apisResponse} cookies={cookies} category={"stories"} accountName={folderName}/> : getFiles()? '' : 'no files'}
+			 {apisResponse? <FilesList fileNames={apisResponse} cookies={cookies} category={"stories"} accountName={folderName}/> : getFiles()? '' : 'no files'}
 
 		</div>
 		</>

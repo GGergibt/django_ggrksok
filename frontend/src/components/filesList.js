@@ -3,10 +3,10 @@ import React, {useState, useEffect} from 'react';
 import FileItem from './fileItem'
 
 
-const FilesList = ({history, cookies, category, accountName}) => {
-	console.log(accountName)
+const FilesList = ({fileNames, cookies, category, accountName}) => {
+	//accountName необязательное поле. Только для отображения сторис
 	const [typeMedia, setTypeMedia] = useState("")
-	const filesList = history.files? history.files: history
+	const filesList = fileNames.files? fileNames.files: fileNames
 
 	useEffect(() => {
 	if (category === "stories") {
