@@ -18,9 +18,10 @@ const FilesList = ({history, cookies, category, accountName}) => {
 	}
 	}
 	)
+	console.log(filesList)
 	return(
-		<ul class="p-4  pt-4 ">
-		{filesList.map((folder) => {return <FileItem accountName={accountName} cookies={cookies} fileDetail={folder} typeMedia={typeMedia} category={category}/>})}
+		<ul className="list-none ml-6 max-h-[350px] pt-4 overflow-y-scroll"> 
+			{filesList.length > 0? filesList.map((folder) => {return <FileItem accountName={accountName} cookies={cookies} fileDetail={folder} typeMedia={typeMedia} category={category}/>}) : <p>Нет скачиваний</p>}
 		</ul>
 	)
 }
