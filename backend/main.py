@@ -12,21 +12,8 @@ origins = [
     "http://localhost",
     "http://127.0.0.1",
     "http://localhost:3000",
-    "http://127.0.0.1:8000/",
+    "http://127.0.0.1:8000",
 ]
-
-
-@app.on_event("startup")
-def on_startup():
-    create_db_and_tables()
-
-
-app.mount("/media/youtube", StaticFiles(directory="media/youtube"), name="media")
-app.mount("/media/instagram", StaticFiles(directory="media/instagram"), name="media")
-
-
-app.include_router(mainRouter.main_router)
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -34,6 +21,17 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.mount("/media/youtube", StaticFiles(directory="media/youtube"), name="media")
+app.mount("/media/instagram", StaticFiles(directory="media/instagram"), name="media")
+
+
+@app.on_event("startup")
+def on_startup():
+    create_db_and_tables()
+
+
+app.include_router(mainRouter.main_router)
 # @app.post("/")
 # def create_user(user: User):
 #     result = insert_user_to_db(user)
